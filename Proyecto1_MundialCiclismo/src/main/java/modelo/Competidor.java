@@ -66,4 +66,42 @@ public class Competidor extends Atleta {
         public String obtenerDatos() {
         return toString();
     }
-}
+        
+       public void actualizarRanking(int puntosObtenidos) {
+        if (puntosObtenidos >= 0) {
+            puntos = puntos + puntosObtenidos;
+            int posicionesQueSube = puntosObtenidos / 10;
+            rankingMundial = rankingMundial - posicionesQueSube;
+            if (rankingMundial < 1) {
+                rankingMundial = 1;
+            }
+        
+        }
+       }
+       
+        
+        public void actualizarRanking(int puntosObtenidos, boolean ganoMedalla) {
+        int bono = 0;
+        if (ganoMedalla) {
+            if (puntosObtenidos >= 50) {
+                bono = 20;
+            } else {
+                bono = 10;
+            }
+        }
+        
+        actualizarRanking(puntosObtenidos + bono);
+    }
+        }
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+    
