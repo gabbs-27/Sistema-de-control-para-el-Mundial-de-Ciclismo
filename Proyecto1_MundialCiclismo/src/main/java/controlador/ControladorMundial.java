@@ -39,4 +39,36 @@ public class ControladorMundial {
         }
         return "Corredor " + numero + " registrado:\n" + corredor.obtenerDatos();
     }
+   
+   
+public String actualizarRanking(int numero, int puntos, boolean ganoMedalla) {
+        Competidor corredor = obtenerCorredor(numero);
+        if (corredor == null) {
+            return "Primero registre el corredor " + numero;
+        }
+        if (ganoMedalla) {
+            corredor.actualizarRanking(puntos, true);  
+        } else {
+            corredor.actualizarRanking(puntos);       
+        }
+        return "Ranking del corredor " + numero + " actualizado:\n" + corredor.obtenerDatos();
+    }
+
+ public String verRanking() {
+        if (corredor1 == null || corredor2 == null) {
+            return "Debe registrar los 2 corredores.";
+        }
+        String texto = "- RANKING - \n";
+        if (corredor1.getRankingMundial() <= corredor2.getRankingMundial()) {
+            texto = texto + "1° " + corredor1.obtenerDatos() + "\n";
+            texto = texto + "2° " + corredor2.obtenerDatos() + "\n";
+        } else {
+            texto = texto + "1° " + corredor2.obtenerDatos() + "\n";
+            texto = texto + "2° " + corredor1.obtenerDatos() + "\n";
+        }
+        return texto;
+    }
+ 
+ 
+
 }
