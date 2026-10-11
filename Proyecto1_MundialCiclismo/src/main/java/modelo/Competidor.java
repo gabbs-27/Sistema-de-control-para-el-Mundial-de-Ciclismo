@@ -57,7 +57,13 @@ public class Competidor extends Atleta {
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
+   
+    @Override
+    public String toString() {
+        return super.toString() + "Ranking mundial: " + rankingMundial + "Estatura: " + estatura + " m" + "Peso: " + peso + " kg" + "Puntos: " + puntos;
+    }
     
-    
-    
+        public String obtenerDatos() {
+        return toString();
+    }
 }
